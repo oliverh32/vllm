@@ -98,6 +98,12 @@ def _convert_tokens_to_string_with_added_encoders(
     else:
         return "".join(sub_texts)
 
+
+# 5 is an arbitrary value that should work for all
+# tokenizers (bigger = more conservative).
+INITIAL_INCREMENTAL_DETOKENIZATION_OFFSET = 5
+
+
 def convert_prompt_ids_to_tokens(
     tokenizer: Union[PreTrainedTokenizer, PreTrainedTokenizerFast],
     prompt_ids: List[int],
